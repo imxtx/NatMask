@@ -1,0 +1,5 @@
+model: 'facenet'
+surrogates: ['arcface', 'cosface', 'mobileface']
+esb_size:
+  lfw: 26
+  celeba_hq: 29

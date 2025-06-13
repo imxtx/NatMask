@@ -1,0 +1,15 @@
+pretrained_models/*.pth
+outputs/
+.venv/
+__pycache__/
+.vscode/
+*logs
+pytorch3d/
+*.pyc
+hydra_outputs/
+wandb
+results
+results_test
+FaceXZoo/FMA-3D/model/prnet.pth
+notebooks/
+temp/

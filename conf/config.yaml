@@ -1,0 +1,68 @@
+# Hydra settings
+hydra:
+  run:
+    dir: ./hydra_outputs/${now:%Y-%m-%d}/${now:%H-%M-%S}
+defaults:
+  - target: arcface
+  - _self_
+
+# Model settings
+prn:
+  face_ind: data/uv_data/face_ind.txt
+  triangles: data/uv_data/triangles.txt
+  prnet: pretrained_models/prnet.pth
+  uv_face_mask: data/uv_data/uv_face_mask.png
+  mask_tex_path: data/masks/texture
+style_model: vgg19
+
+# Dataset configuration
+dataset:
+  lfw:
+    name: LFW
+    root_dir: /mnt/sdb/xietianxin/datasets/face/LFW/lfw-deepfunneled
+    pair_list:
+      dodging: data/lfw/dodging1000.txt
+      impersonation: data/lfw/impersonation1000.txt
+  celeba_hq:
+    name: CelebA-HQ
+    root_dir: /mnt/sdb/xietianxin/datasets/face/CelebAMask-HQ/CelebA-HQ-img-256
+    pair_list:
+      dodging: data/celeba_hq/dodging1000.txt
+      impersonation: data/celeba_hq/impersonation1000.txt
+  styles:
+    name: styles
+    root_dir: /mnt/sdb/xietianxin/datasets/style_transfer/Best_Artworks_of_All_Time
+
+# Hyperparameters
+attack: "dodging" # or "impersonation", you can override this in the command line
+n_iter: 100 # number of attack iterations
+lr: 0.01 # learning rate
+momentum: 1.0 # momentum for the optimizer
+style_weight: 1000 # weight for the style loss
+style_n_iter: 30 # number of iterations for the style transfer
+style_lr: 0.01 # learning rate for the style transfer
+iasi_weight: 0.1 # weight for the iasi loss
+
+batch_size: 1
+tv_weight: 10 # weight for the TV loss
+de_K: 0.5 # DE mutation strength
+de_CR: 0.1 # DE crossover probability
+aug: true # whether to use augmentation
+single_esb: true # whether to use a single ESB for all samples in a batch
+
+# Training settings
+device: cuda:0
+num_workers: 8
+debug: false
+test_dataset: lfw
+
+# Output
+results_dir: results_test
+save_images: true
+save_obj: false # save obj files that can be used for rendering
+
+# You can set the entity to your own wandb account
+wandb:
+  project: "natmask"
+  entity: "txxie-none"
+  n_log_interval: 2
