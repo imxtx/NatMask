@@ -12,7 +12,7 @@ Clone this repo:
 git clone https://github.com/imxtx/NatMask.git
 ```
 
-We recommend using the extremely fast Python package and project manager, i.e., [uv](https://docs.astral.sh/uv/), to manage your environments:
+We recommend using [uv](https://docs.astral.sh/uv/), an extremely fast Python package and project manager, to manage your environments:
 
 ```bash
 cd NatMask
@@ -20,7 +20,7 @@ uv venv --python 3.11.11
 source .venv/bin/activate
 ```
 
-*Deprecated and not tested*: You can also use Conda to create an environment. Note that PyTorch no longer supports Conda for installation, so you will need to use pip to install required packages.
+*Deprecated and not tested*: You can also use Conda to create an environment. Note that PyTorch no longer supports Conda for installation, so you will need to use pip to install the required packages.
 
 ```bash
 conda create -n natmask python=3.11.11
@@ -139,7 +139,7 @@ python utils/gen_pairs.py \
     --root_dir /path/to/the/folder/containing_pairs.csv
 ```
 
-This command will read the paris list from `pairs.csv` and create `data/lfw/dodging.txt` and `data/lfw/impersonation.txt`.
+This command will read the pairs list from `pairs.csv` and create `data/lfw/dodging.txt` and `data/lfw/impersonation.txt`.
 
 ### CelebA-HQ
 
@@ -165,7 +165,7 @@ python api_usage/face_preprocess_celeba_hq.py \
     --img_dir /path/to/CelebAMask-HQ/CelebA-HQ-img-256
 ```
 
-After running this command, the `CelebA-HQ-img-256` folder should contains the detected landmarks of each face image like this:
+After running this command, the `CelebA-HQ-img-256` folder should contain the detected landmarks of each face image like this:
 
 ```text
 0.jpg
@@ -202,7 +202,7 @@ By default, preprocessed style images will be saved to the `data/style_images` f
 
 We have preprocessed some mask templates for experiments, available in the `data/masks` folder. You can also create your own mask templates by following these steps:
 
-(1) Place the images of faces wearing masks and their corresponding segmented mask images (you can manually or use pre-trained models like [SAM](https://github.com/facebookresearch/segment-anything) to segment the mask) into two folders: `data/masks/face` and and `data/masks/mask`.
+(1) Place the images of faces wearing masks and their corresponding segmented mask images (you can manually or use pre-trained models like [SAM](https://github.com/facebookresearch/segment-anything) to segment the mask) into two folders: `data/masks/face` and `data/masks/mask`.
 
 (2) Run the following commands to extract facial landmarks:
 
@@ -249,7 +249,7 @@ or run in parallel for all models:
 bash scripts/run_lfw.sh
 ```
 
-All the output will be write to the `results/<dataset>` (image and obj files.) and `wandb` (wandb logs) folders.
+All the output will be write to the `results/<dataset>` (image and obj files) and `wandb` (wandb logs) folders.
 
 You can change：
 
@@ -259,7 +259,7 @@ You can change：
 
 You can take a look at the `conf` folder to change more hyperparameters to balance the ASR and the naturalness of generated masks.
 
-Note that we use [Hydra](https://hydra.cc/docs/intro/) for configuration management and [wandb](https://wandb.ai/site/) for logging (see a wandb logging example bellow).
+Note that we use [Hydra](https://hydra.cc/docs/intro/) for configuration management and [wandb](https://wandb.ai/site/) for logging (see the wandb logging example below).
 
 ![wandb](./static/wandb_log.png)
 
@@ -273,7 +273,7 @@ One can try online demos ([Face++](https://www.faceplusplus.com/face-comparing/)
 
 ## Acknowledgement
 
-We would like to thank the following open-source projects:
+We want to thank the following open-source projects:
 
 - [FaceX-Zoo](https://github.com/JDAI-CV/FaceX-Zoo)
 - [PRNet](https://github.com/yfeng95/PRNet)
